@@ -2,6 +2,13 @@
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*" : ["./components/*"],
+      "@/pages/*" : ["./pages/*"],
+      "@/public/*" : ["./public/*"],
+      "@/styles/*" : ["./styles/*"]
+    },
     "outDir": "build",
     "allowJs": true,
     "skipLibCheck": true,

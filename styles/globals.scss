@@ -1,0 +1,81 @@
+@import "variables.scss";
+
+@import "~bootstrap/scss/bootstrap";
+
+@mixin transition($transition) {
+  -moz-transition:    all $transition ease;
+  -o-transition:      all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: 		all $transition ease;
+  transition:         all $transition ease;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  width: 85%;
+  float: right;
+  @include transition(.5s);
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+    width: 70%;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+    width: 100%;
+  }
+
+  &.narrowContent {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding: 4em 0;
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) {
+      width: 100%;
+      padding: 3.5em 1em;
+    }
+  }
+}
+
+.workItem {
+  margin-bottom: 30px;
+  a {
+    border: none;
+    text-align: center;
+    img {
+      margin-bottom: 10px;
+      float: left;
+      border: 10px solid transparent;
+      @include transition(.5s);
+    }
+    h3 {
+      font-size: 20px;
+      color: $brand-black;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: lighten($brand-black, 80%);
+      margin-bottom: 0;
+    }
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+      img {
+        border: 1px solid $brand-black;
+      }
+    }
+  }
+}
